@@ -11,7 +11,6 @@ Muitos abrigos enfrentam dificuldades na organização de informações sobre an
 | Cadastro de Animais   | Registro de novos animais com informações detalhadas (raça, idade, saúde, foto etc.) | ✅ Completo |
 | Adoção de Animais     | Processo de adoção e registro de adotantes                                           | ✅ Completo |
 | Gestão de Voluntários | Cadastro e gerenciamento de voluntários                                              | ✅ Completo |
-| Login e Autenticação  | Acesso restrito a administradores e voluntários                                      | 🟡 Parcial |
 
 Screenshots das telas principais:
 <img width="1320" height="585" alt="2" src="https://github.com/user-attachments/assets/b72ccd7f-86a7-4bb3-881e-91014ff312c1" />
