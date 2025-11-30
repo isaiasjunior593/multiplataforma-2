@@ -84,6 +84,7 @@ Comprovação Obrigatória
 ![WhatsApp Image 2025-11-30 at 15 38 04](https://github.com/user-attachments/assets/c6d2d012-fb49-45ab-99af-ed480e432b2e)
 
 Equipe
-Isaias Porto de Freitas Junior
+Isaias Porto de Freitas Junior(atribuição - validação)
 Mariana Ferreira dos Santos(atribuição - validação e feedback)
-Raphael Rodrigues de Sousa(atribuição - mobile)
+Raphael Rodrigues de Sousa(atribuição)
+Eugenio Sancho Barroso Neto(atribuição - mobile)
