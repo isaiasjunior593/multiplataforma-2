@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gerenciamento do Abrigo</title>
+    
+    <style>
+        :root {
+            --cor-principal: #6c2eb7; 
+            --cor-secundaria: #ff7f50; 
+            --cor-fundo: #f0f0f5;
+            --cor-card: #ffffff;
+            --cor-texto: #333333;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 380px;
+            padding: 30px;
+            background: var(--cor-card);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: var(--cor-principal);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+        h2 {
+            font-size: 1.4rem;
+        }
+
+        
+        .select-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .select-btn {
+            padding: 15px;
+            border: 2px solid var(--cor-principal);
+            border-radius: 10px;
+            background-color: var(--cor-card);
+            color: var(--cor-principal);
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+
+        .select-btn:hover {
+            background-color: var(--cor-fundo);
+        }
+
+        .select-btn.active {
+            background-color: var(--cor-principal);
+            color: var(--cor-card);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FORMULÁRIO */
+        .form-area {
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--cor-secundaria);
+            color: var(--cor-card);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background-color: #e56f45;
+        }
+
+        
+        .action-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            font-size: 0.9rem;
+        }
+        
+        .link-separator {
+            color: #ccc;
+        }
+
+        
+        .register-link {
+            color: var(--cor-principal);
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        #login-selection-area .register-link {
+            display: inline; 
+            margin-top: 0;
+        }
+        
+        
+        .success-message {
+            color: var(--cor-principal); 
+            font-weight: bold; 
+            margin-top: 10px;
+            text-align: center;
+        }
+
+
+        
+        .hidden {
+            display: none !important;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h1 id="title-text">Bem-vindo(a)</h1>
+        
+        <div id="login-selection-area">
+            <div class="select-buttons">
+                <button class="select-btn" data-user-type="adotante" onclick="showLogin('adotante', this)">Adotante</button>
+                <button class="select-btn" data-user-type="abrigo" onclick="showLogin('abrigo', this)">Abrigo de Animais</button>
+            </div>
+            
+            <div class="action-links">
+                <a class="register-link" href="#" onclick="showForgotPasswordForm(event)">Esqueci minha senha</a>
+                <span class="link-separator">|</span>
+                <a class="register-link" href="#" onclick="showRegisterForm(event)">Cadastre-se</a>
+                <span class="link-separator">|</span>
+                <a class="register-link" href="#" onclick="showAdminForm(event)">Admin</a>
+            </div>
+        </div>
+
+        <div id="login-form-area" class="form-area hidden">
+            <form id="login-form">
+                <p>Faça login como <strong id="login-user-type-text"></strong></p>
+                <div class="form-group" id="login-input-1-group">
+                    </div>
+                <div class="form-group">
+                    <input type="password" id="login-password" placeholder="Senha" required>
+                </div>
+                <button type="submit" class="submit-btn">ENTRAR</button>
+                <a class="register-link" href="#" onclick="showLoginSelection(event)">Voltar à Seleção</a>
+            </form>
+        </div>
+
+        <div id="register-selection-area" class="form-area hidden">
+            <h2>Escolha seu Tipo de Cadastro</h2>
+            <div class="form-group">
+                <select id="register-type-select" onchange="updateRegisterForm(this.value)">
+                    <option value="">Selecione...</option>
+                    <option value="adotante">Adotante</option>
+                    <option value="abrigo">Abrigo de Animais</option>
+                </select>
+            </div>
+            
+            <form id="register-form" class="hidden">
+                <div id="register-inputs-container">
+                    </div>
+                
+                <button type="submit" class="submit-btn">CADASTRAR</button>
+                <a class="register-link" href="#" onclick="showLoginSelection(event)">Voltar ao Login</a>
+            </form>
+        </div>
+
+        <div id="forgot-password-area" class="form-area hidden">
+            <h2>Recuperação de Senha</h2>
+            <form id="forgot-password-form">
+                <div class="form-group">
+                    <input type="email" id="forgot-email" placeholder="Seu Gmail" required>
+                </div>
+                <button type="submit" class="submit-btn">ENVIAR SOLICITAÇÃO</button>
+                
+                <p id="forgot-message" class="success-message hidden">
+                    Sua solicitação de mudança de senha será analisada e logo retornaremos. Obrigada!
+                </p>
+                
+                <a class="register-link" href="#" onclick="showLoginSelection(event)">Voltar ao Login</a>
+            </form>
+        </div>
+
+        <div id="admin-area" class="form-area hidden">
+            <h2>Acesso Administrativo</h2>
+            <form id="admin-form">
+                <div class="form-group">
+                    <input type="text" id="admin-id" placeholder="Seu ID de Administrador" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="admin-password" placeholder="Senha" required>
+                </div>
+                <button type="submit" class="submit-btn">ENTRAR COMO ADMIN</button>
+                <a class="register-link" href="#" onclick="showLoginSelection(event)">Voltar ao Login</a>
+            </form>
+        </div>
+        
+    </div>
+
+    <script>
+        const loginSelectionArea = document.getElementById('login-selection-area');
+        const loginFormArea = document.getElementById('login-form-area');
+        const registerSelectionArea = document.getElementById('register-selection-area');
+        const registerForm = document.getElementById('register-form');
+        const forgotPasswordArea = document.getElementById('forgot-password-area'); 
+        const adminArea = document.getElementById('admin-area'); 
+        const forgotMessage = document.getElementById('forgot-message'); 
+        const titleText = document.getElementById('title-text');
+        
+       
+        function createInputField(id, placeholder, type, userType) {
+            return `<div class="form-group">
+                        <input type="${type}" id="${id}" placeholder="${placeholder}" required>
+                    </div>`;
+        }
+
+        
+        function createUserTypeHiddenInput(userType) {
+            return `<input type="hidden" name="user_type" value="${userType}">`;
+        }
+
+        
+        
+        
+        window.showLogin = (userType, button) => {
+            
+            forgotPasswordArea.classList.add('hidden');
+            adminArea.classList.add('hidden');
+            
+            
+            loginSelectionArea.classList.add('hidden');
+            loginFormArea.classList.remove('hidden');
+            titleText.textContent = "Acesso de " + (userType === 'adotante' ? 'Adotante' : 'Abrigo');
+
+            
+            document.querySelectorAll('.select-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+           
+            const inputGroup = document.getElementById('login-input-1-group');
+            const userTypeText = document.getElementById('login-user-type-text');
+            
+            if (userType === 'adotante') {
+                inputGroup.innerHTML = createInputField('login-email', 'Seu Email (Adotante)', 'email', 'adotante') + createUserTypeHiddenInput('adotante');
+                userTypeText.textContent = 'Adotante';
+            } else {
+                inputGroup.innerHTML = createInputField('login-cnpj', 'Seu CNPJ (Abrigo)', 'text', 'abrigo') + createUserTypeHiddenInput('abrigo');
+                userTypeText.textContent = 'Abrigo';
+            }
+        };
+
+        
+        window.showLoginSelection = (event) => {
+            if (event) event.preventDefault(); 
+
+            titleText.textContent = "Bem-vindo(a)";
+            
+            
+            loginFormArea.classList.add('hidden');
+            registerSelectionArea.classList.add('hidden');
+            forgotPasswordArea.classList.add('hidden'); 
+            adminArea.classList.add('hidden'); 
+            
+            
+            loginSelectionArea.classList.remove('hidden');
+            
+            o
+            document.querySelectorAll('.select-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById('register-type-select').value = "";
+            registerForm.classList.add('hidden');
+            forgotMessage.classList.add('hidden'); 
+        };
+
+        
+        window.showRegisterForm = (event) => {
+            if (event) event.preventDefault();
+            
+            
+            loginSelectionArea.classList.add('hidden');
+            loginFormArea.classList.add('hidden');
+            forgotPasswordArea.classList.add('hidden');
+            adminArea.classList.add('hidden');
+
+            titleText.textContent = "Novo Cadastro";
+            registerSelectionArea.classList.remove('hidden');
+            document.getElementById('register-inputs-container').innerHTML = '';
+        };
+
+        
+        window.updateRegisterForm = (userType) => {
+            const inputsContainer = document.getElementById('register-inputs-container');
+            let htmlInputs = '';
+            
+            if (userType === 'adotante') {
+                htmlInputs = 
+                    createUserTypeHiddenInput('adotante') +
+                    createInputField('register-email', 'Seu Email (Adotante)', 'email', 'adotante') +
+                    '<div class="form-group"><input type="password" id="register-password" placeholder="Definir Senha" required></div>';
+
+                registerForm.classList.remove('hidden');
+            } else if (userType === 'abrigo') {
+                
+                htmlInputs = 
+                    createUserTypeHiddenInput('abrigo') +
+                    createInputField('register-cnpj', 'Seu CNPJ', 'text', 'abrigo') +
+                    createInputField('register-email', 'Seu Email', 'email', 'abrigo') +
+                    '<div class="form-group"><input type="password" id="register-password" placeholder="Definir Senha" required></div>';
+                
+                registerForm.classList.remove('hidden');
+            } else {
+                registerForm.classList.add('hidden');
+            }
+
+            inputsContainer.innerHTML = htmlInputs;
+        };
+
+        
+        window.showForgotPasswordForm = (event) => {
+            if (event) event.preventDefault();
+
+            
+            loginSelectionArea.classList.add('hidden');
+            loginFormArea.classList.add('hidden');
+            registerSelectionArea.classList.add('hidden');
+            adminArea.classList.add('hidden');
+            
+            
+            forgotPasswordArea.classList.remove('hidden');
+            titleText.textContent = "Recuperação de Senha";
+
+            
+            forgotMessage.classList.add('hidden');
+            document.getElementById('forgot-email').value = '';
+        };
+
+    
+        window.showAdminForm = (event) => {
+            if (event) event.preventDefault();
+
+            
+            loginSelectionArea.classList.add('hidden');
+            loginFormArea.classList.add('hidden');
+            registerSelectionArea.classList.add('hidden');
+            forgotPasswordArea.classList.add('hidden');
+
+            
+            adminArea.classList.remove('hidden');
+            titleText.textContent = "Acesso Administrativo";
+            document.getElementById('admin-form').reset();
+        };
+
+
+        
+document.getElementById('login-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const type = e.target.querySelector('input[name="user_type"]').value;
+    
+    
+    if (type === 'adotante') {
+        alert(`Simulação: Login como Adotante. Redirecionando...`);
+        window.location.href = 'dashboard_adotante.html';
+    } else if (type === 'abrigo') {
+        alert(`Simulação: Login como Abrigo. Redirecionando...`);
+        window.location.href = 'dashboard_abrigo.html';
+    } else {
+        alert('Erro de login ou tipo de usuário desconhecido.');
+    }
+});
+
+        document.getElementById('register-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const type = e.target.querySelector('input[name="user_type"]').value;
+            alert(`Simulação: Cadastro de ${type} concluído! Redirecionando para login...`);
+            showLoginSelection(); 
+        });
+        
+        
+        document.getElementById('forgot-password-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            forgotMessage.classList.remove('hidden');
+           
+        });
+        
+        
+        document.getElementById('admin-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Simulação: Tentativa de Login Administrativo. ID: ' + document.getElementById('admin-id').value);
+           
+            showLoginSelection(); 
+        });
+
+    </script>
+</body>
+</html>
