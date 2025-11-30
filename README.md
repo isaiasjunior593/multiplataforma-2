@@ -20,5 +20,21 @@ Tecnologias Utilizadas
 Linguagens de programação -> ruby(mobile),javascript 
  Frameworks e bibliotecas -> Node.js
  Banco de dados -> Mongodb
- Ferramentas de desenvolvimento ->Vscode
+
+Arquitetura do Sistema
+
+Visão Geral:
+O sistema segue uma arquitetura cliente-servidor dividida em frontend e backend, conectados via API REST.
+
+Componentes Principais:
+
+Frontend: Interface desenvolvida em html,css e javascript, responsável pela interação com o usuário.
+
+Backend: API em Node.js, responsável pela lógica de negócios e comunicação com o banco de dados.
+
+Banco de Dados: MongoDB hospedado no Atlas.
+
+Instruções de Instalação e Execução
+
+
 
