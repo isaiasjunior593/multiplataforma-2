@@ -86,6 +86,7 @@ Comprovação Obrigatória
 Equipe
 Isaias Porto de Freitas Junior(atribuição - validação)
 Mariana Ferreira dos Santos(atribuição - validação e feedback)
-Raphael Rodrigues de Sousa(atribuição - )
+Raphael Rodrigues de Sousa(atribuição -front end )
 Eugenio Sancho Barroso Neto(atribuição - mobile)
-Francisco Ivamar Silva Leite(atrbuição - )
+Francisco Ivamar Silva Leite(atrbuição - mobile )
+julia santos atrbuição - front end
