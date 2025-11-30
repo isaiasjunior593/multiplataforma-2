@@ -46,7 +46,7 @@ Instalação
 
 Clone o repositório:
 
-git clone https://github.com/seuusuario/abrigo-solidario.git
+git clone https:https://github.com/isaiasjunior593/multiplataforma-2/
 cd abrigo-solidario
 
 Instale as dependências:
