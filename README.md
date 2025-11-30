@@ -78,3 +78,8 @@ O aplicativo desenvolvido foi analisado e validado pela funcionária Aparecida F
 
 
 Comprovação Obrigatória
+
+![WhatsApp Image 2025-11-30 at 15 37 38](https://github.com/user-attachments/assets/34739d69-e22f-4061-ac03-42f5db987b3c)
+
+![WhatsApp Image 2025-11-30 at 15 38 04](https://github.com/user-attachments/assets/c6d2d012-fb49-45ab-99af-ed480e432b2e)
+
