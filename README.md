@@ -36,5 +36,31 @@ Banco de Dados: MongoDB hospedado no Atlas.
 
 Instruções de Instalação e Execução
 
+Pré-requisitos
 
+Node.js (>= 18.x)
+NPM ou Yarn
+Conta no MongoDB Atlas (ou banco local configurado)
+
+Instalação
+
+Clone o repositório:
+
+git clone https://github.com/seuusuario/abrigo-solidario.git
+cd abrigo-solidario
+
+Instale as dependências:
+
+npm install
+
+Configure as variáveis de ambiente:
+Crie um arquivo .env na raiz com:
+
+MONGO_URI=mongodb+srv://usuario:senha@cluster.mongodb.net/
+JWT_SECRET=sua_chave_secreta
+PORT=3000
+
+Execute o servidor:
+
+npm start
 
