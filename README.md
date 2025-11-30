@@ -64,3 +64,17 @@ Execute o servidor:
 
 npm start
 
+Validação
+
+Validação com Público-Alvo Específico
+
+⦁	Identificação específica do público-alvo
+⦁	Nome da pessoa : Aparecida, funcionaria do pet shop 4 patas
+⦁	Localização exata:bairro:  Sapiranga - Fortaleza - Ce
+⦁	Contexto e necessidades específicas: 
+O objetivo da visita foi apresentar o projeto de um aplicativo desenvolvido pela equipe, voltado ao apoio e à facilitação do processo de adoção de animais, bem como obter a validação da solução proposta por um estabelecimento que atua diretamente nessa área.
+A apresentação do projeto foi realizada no pet shop 4 Patas, localizado no bairro Sapiranga em Fortaleza -CE que aceita pegar animais para adoção responsável. Devido à inviabilidade de apresentação presencial, a reunião ocorreu de forma remota, por meio de uma chamada na plataforma Google Meet. Durante a apresentação, o funcionamento do aplicativo foi demonstrado e explicado, destacando suas funcionalidades e benefícios para o processo de adoção.
+O aplicativo desenvolvido foi analisado e validado pela funcionária Aparecida Firmino, que acompanhou a apresentação e considerou a proposta adequada às necessidades do pet shop e ao contexto de adoção de animais.
+
+
+Comprovação Obrigatória
