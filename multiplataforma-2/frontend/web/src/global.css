@@ -1,0 +1,25 @@
+:root {
+  --cor-principal: #6c2eb7;
+  --cor-secundaria: #ff7f50;
+  --cor-fundo: #f0f0f5;
+  --cor-card: #ffffff;
+  --cor-texto: #333333;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Utilitários que você usava */
+.hidden {
+  display: none !important;
+}
