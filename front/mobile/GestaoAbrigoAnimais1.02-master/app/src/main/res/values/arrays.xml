@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="prioridades">
-        <item>Baixa</item>
-        <item>Média</item>
-        <item>Alta</item>
-        <item>URGENTE</item>
-    </string-array>
-</resources>
